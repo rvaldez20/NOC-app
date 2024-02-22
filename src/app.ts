@@ -1,4 +1,5 @@
 import { ServerApp } from "./presentation/server";
+import { envs } from './config/plugins/envs.plugin';
 
 (async() => {
   main();
@@ -6,5 +7,12 @@ import { ServerApp } from "./presentation/server";
 
 
 function main() {
-  ServerApp.start();
+  // ServerApp.start();
+
+  // try {
+  //   console.log( envs );
+
+  // } catch (error) {
+  //   console.log(error)
+  // }
 }
