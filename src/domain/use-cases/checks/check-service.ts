@@ -39,8 +39,8 @@ export class CheckService implements CheckServiceUseCase {
       // console.log(`${error}`);
 
       // si algo sale mal y no se pudo grabar
-      const errorMessage = `${ error }`;
-      const log = new LogEntity( errorMessage, LogSeverityLevel.low );
+      const errorMessage = `${url} in not ok. ${ error }`;
+      const log = new LogEntity( errorMessage, LogSeverityLevel.high );
       this.logRepository.saveLog(log);
 
       this.errorCallback(errorMessage);
