@@ -19,7 +19,7 @@ export class ServerApp {
     CronService.createJob(
       '*/5 * * * * *',
       () => {
-        const url = 'http://localhost:3000';
+        const url = 'http://google.com';
         new CheckService(
           fileSystemLogRepository,
           () => console.log(`${url} is ok`),
