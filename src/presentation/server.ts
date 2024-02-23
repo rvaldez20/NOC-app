@@ -16,21 +16,21 @@ export class ServerApp {
 
     console.log('Server started...');
 
-    // Send email
+    // TODO: Send email
 
-    CronService.createJob(
-      '*/5 * * * * *',
-      () => {
-        // const url = 'http://google.com';
-        const url = 'http://localhost:3000';
-        new CheckService(
-          fileSystemLogRepository,
-          () => console.log(`${url} is ok`),
-          ( error ) => console.log(error),
-        ).execute(url);
-        // new CheckService().execute('http://localhost:3000');
-      }
-    );
+    // CronService.createJob(
+    //   '*/5 * * * * *',
+    //   () => {
+    //     // const url = 'http://google.com';
+    //     const url = 'http://localhost:3000';
+    //     new CheckService(
+    //       fileSystemLogRepository,
+    //       () => console.log(`${url} is ok`),
+    //       ( error ) => console.log(error),
+    //     ).execute(url);
+    //     // new CheckService().execute('http://localhost:3000');
+    //   }
+    // );
 
 
   }
