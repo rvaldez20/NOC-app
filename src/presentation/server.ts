@@ -16,10 +16,13 @@ export class ServerApp {
 
     console.log('Server started...');
 
+    // Send email
+
     CronService.createJob(
       '*/5 * * * * *',
       () => {
-        const url = 'http://google.com';
+        // const url = 'http://google.com';
+        const url = 'http://localhost:3000';
         new CheckService(
           fileSystemLogRepository,
           () => console.log(`${url} is ok`),

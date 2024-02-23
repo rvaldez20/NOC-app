@@ -11,7 +11,11 @@ MAILER_SECRET_KEY=
 
 PROD=false
 ```
-3. Script for server dev
+3. Install dependencies
+```
+npm install
+```
+4. Server development
 ```
 npm run dev
 ```

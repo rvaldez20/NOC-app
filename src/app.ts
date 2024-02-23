@@ -7,7 +7,7 @@ import { envs } from './config/plugins/envs.plugin';
 
 
 function main() {
-  // ServerApp.start();
+  ServerApp.start();
 
   // try {
   //   console.log( envs );
