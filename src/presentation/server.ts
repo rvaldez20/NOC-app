@@ -3,12 +3,15 @@ import { CronService } from "./cron/cron-service";
 import { FileSystemDataSource } from "../infrastructure/datasources/file-system.datasource";
 import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { EmailService } from "./email/email-service";
+import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
+import { LogRepository } from "../domain/repository/log.repository";
 
 
 // instancias del logRepository
 const fileSystemLogRepository = new LogRepositoryImpl(
   new FileSystemDataSource(),
 );
+const emailService = new EmailService();
 
 
 export class ServerApp {
@@ -29,14 +32,29 @@ export class ServerApp {
     //   `,
     // });
 
-    const emailService = new EmailService(
-      fileSystemLogRepository,
-    );
-    emailService.sendEmailWithFileSystemLogs(
-      ['rvaldez20@gmail.com', 'rvaldez20@hotmail.com']
-    );
+    // emailService.sendEmailWithFileSystemLogs(
+    //   ['rvaldez20@gmail.com', 'rvaldez20@hotmail.com']
+    // );
 
 
+
+    //* Enviando el correo usando el use case
+    // new SendEmailLogs(
+    //   emailService,
+    //   fileSystemLogRepository,
+    // ).execute(['rvaldez20@gmail.com', 'rvaldez20@hotmail.com'])
+
+
+    //! pasando directamente el filerepository
+    // const emailService = new EmailService(
+    //   fileSystemLogRepository,
+    // );
+    // emailService.sendEmailWithFileSystemLogs(
+    //   ['rvaldez20@gmail.com', 'rvaldez20@hotmail.com']
+    // );
+
+
+    //! Muestra en consola logs si esta arriba o caido el servicio
     // CronService.createJob(
     //   '*/5 * * * * *',
     //   () => {
