@@ -18,7 +18,7 @@ export class ServerApp {
     console.log('Server started...');
 
     // TODO: Send email
-    const emailService = new EmailService();
+    // const emailService = new EmailService();
     // emailService.sendEmail({
     //   to: 'rvaldez20@gmail.com',
     //   subject: 'Logs de sistema',
@@ -29,6 +29,9 @@ export class ServerApp {
     //   `,
     // });
 
+    const emailService = new EmailService(
+      fileSystemLogRepository,
+    );
     emailService.sendEmailWithFileSystemLogs(
       ['rvaldez20@gmail.com', 'rvaldez20@hotmail.com']
     );
