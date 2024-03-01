@@ -31,5 +31,5 @@ async function main() {
 
 
 
-  // ServerApp.start();
+  ServerApp.start();
 }

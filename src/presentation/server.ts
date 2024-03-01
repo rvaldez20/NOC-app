@@ -5,18 +5,22 @@ import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository
 import { EmailService } from "./email/email-service";
 import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { LogRepository } from "../domain/repository/log.repository";
+import { MongoLogDatasouce } from "../infrastructure/datasources/mongo-log.datasource";
+import { LogSeverityLevel } from "../domain/entities/log.entity";
+
 
 
 // instancias del logRepository
-const fileSystemLogRepository = new LogRepositoryImpl(
+const logRepository = new LogRepositoryImpl(
   new FileSystemDataSource(),
+  // new MongoLogDatasouce(),
 );
 const emailService = new EmailService();
 
 
 export class ServerApp {
 
-  public static start() {
+  public static async start() {
 
     console.log('Server started...');
 
@@ -58,16 +62,22 @@ export class ServerApp {
     // CronService.createJob(
     //   '*/5 * * * * *',
     //   () => {
-    //     // const url = 'http://google.com';
-    //     const url = 'http://localhost:3000';
+    //     // const url = 'http://localhost:3000';
+    //     const url = 'http://googlsf34edfwefewe.com';
     //     new CheckService(
-    //       fileSystemLogRepository,
+    //       logRepository,
     //       () => console.log(`${url} is ok`),
     //       ( error ) => console.log(error),
     //     ).execute(url);
+
     //     // new CheckService().execute('http://localhost:3000');
     //   }
     // );
+
+
+    //! para obtener los logs por severity
+    const logs = await logRepository.getLogs(LogSeverityLevel.high);
+    console.log(logs)
 
 
   }
