@@ -1,2 +1,3 @@
 
-export * from '../mongo/init';
+export * from './init';
+export * from './models/log.model';
