@@ -76,8 +76,8 @@ export class ServerApp {
 
 
     //! para obtener los logs por severity
-    const logs = await logRepository.getLogs(LogSeverityLevel.medium);
-    console.log(logs)
+    // const logs = await logRepository.getLogs(LogSeverityLevel.medium);
+    // console.log(logs)
 
 
   }
