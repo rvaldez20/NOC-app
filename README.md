@@ -15,7 +15,11 @@ PROD=false
 ```
 npm install
 ```
-4. Server development
+4. Up databases with command
+```
+docker compose up -d
+```
+5. Server development
 ```
 npm run dev
 ```
