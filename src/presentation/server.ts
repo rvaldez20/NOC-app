@@ -1,19 +1,21 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
 import { CronService } from "./cron/cron-service";
-import { FileSystemDataSource } from "../infrastructure/datasources/file-system.datasource";
+import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { EmailService } from "./email/email-service";
 import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { LogRepository } from "../domain/repository/log.repository";
-import { MongoLogDatasouce } from "../infrastructure/datasources/mongo-log.datasource";
-import { LogSeverityLevel } from "../domain/entities/log.entity";
 
+import { FileSystemDataSource } from "../infrastructure/datasources/file-system.datasource";
+import { MongoLogDatasouce } from "../infrastructure/datasources/mongo-log.datasource";
+import { PostgresLogDatasource } from "../infrastructure/datasources/postgres-log.datasource";
 
 
 // instancias del logRepository
 const logRepository = new LogRepositoryImpl(
-  new FileSystemDataSource(),
+  // new FileSystemDataSource(),
   // new MongoLogDatasouce(),
+  new PostgresLogDatasource(),
 );
 const emailService = new EmailService();
 
@@ -63,7 +65,7 @@ export class ServerApp {
     //   '*/5 * * * * *',
     //   () => {
     //     // const url = 'http://localhost:3000';
-    //     const url = 'http://googlsf34edfwefewe.com';
+    //     const url = 'http://googlexwsa.com';
     //     new CheckService(
     //       logRepository,
     //       () => console.log(`${url} is ok`),
@@ -76,7 +78,7 @@ export class ServerApp {
 
 
     //! para obtener los logs por severity
-    // const logs = await logRepository.getLogs(LogSeverityLevel.medium);
+    // const logs = await logRepository.getLogs(LogSeverityLevel.high);
     // console.log(logs)
 
 

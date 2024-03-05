@@ -9,8 +9,40 @@ import { PrismaClient } from '@prisma/client'
 
 
 async function main() {
+  ServerApp.start();
+}
 
-  //! coneccion a mongo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//! coneccion a mongo
   // await MongoDatabase.connect({
   //   mongoUrl: envs.MONGO_URL,
   //   dbName: envs.MONGO_DB_NAME,
@@ -31,22 +63,19 @@ async function main() {
 
 
   //* instaciamos prisma (coneccion a postgres)
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
 
   //* insertamos prisma
-  const newLog = await prisma.logModel.create({
-    data: {
-      level: 'HIGH',
-      message: 'Test message from prisma',
-      origin: 'app.ts'
-    }
-  })
-  console.log(newLog)
+  // const newLog = await prisma.logModel.create({
+  //   data: {
+  //     level: 'HIGH',
+  //     message: 'Test message from prisma',
+  //     origin: 'app.ts'
+  //   }
+  // })
+  // console.log(newLog)
 
   //* insertamos prisma
-  const logs = await prisma.logModel.findMany()
-  console.log(logs)
-
-
-  ServerApp.start();
-}
+  // const logs = await prisma.logModel.findMany()
+  // console.log(logs)
+ */
